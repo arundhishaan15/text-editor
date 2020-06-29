@@ -5,6 +5,7 @@
  * TODO: Toggle the align style for "Formatted Text" when the appropriate button is clicked
  */
 
+
 /**
  * Update the output text as a user types in the textarea
  * HINT: Use the onkeydown function inside HTML
@@ -81,4 +82,9 @@ function fontSize(elem, sizeOfFont) {
 
 function changeColor() {
   document.getElementById('text-output').style.color = document.getElementById("ColorPickerName").value;
+}
+
+function textToSpeech() {
+  var msg = new SpeechSynthesisUtterance(document.getElementById('text-input').value);
+  window.speechSynthesis.speak(msg);
 }
