@@ -5,7 +5,6 @@
  * TODO: Toggle the align style for "Formatted Text" when the appropriate button is clicked
  */
 
-
 /**
  * Update the output text as a user types in the textarea
  * HINT: Use the onkeydown function inside HTML
@@ -69,4 +68,17 @@ function alignText(elem, alignType){
     buttonList[i].classList.remove('active');
   }
   elem.classList.add('active');
+}
+
+function fontSize(elem, sizeOfFont) {
+  document.getElementById('text-output').style.fontSize = sizeOfFont;
+  let buttonList = document.getElementsByClassName('size');
+  for (let i=0; i < buttonList.length; i++) {
+    buttonList[i].classList.remove('active');
+  }
+  elem.classList.add('active');
+}
+
+function changeColor() {
+  document.getElementById('text-output').style.color = document.getElementById("ColorPickerName").value;
 }
