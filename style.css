@@ -31,7 +31,7 @@ body {
   border: 10px solid transparent;
   padding: 15px;
   padding-top: 0px;
-  border-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ8zs3ktwDCEHYKo2cfKgJovqNx32WTn-KD8Q&usqp=CAU) 30 stretch;
+  border-image: url(images/images.png) 30 stretch;
   padding-bottom: 10px;
 }
 
