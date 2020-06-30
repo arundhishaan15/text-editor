@@ -82,9 +82,11 @@ function fontSize(elem, sizeOfFont) {
 
 function changeColor() {
   document.getElementById('text-output').style.color = document.getElementById("ColorPickerName").value;
+  document.getElementById('heading').style.color = document.getElementById("ColorPickerName").value;
 }
 
 function textToSpeech() {
   var msg = new SpeechSynthesisUtterance(document.getElementById('text-input').value);
   window.speechSynthesis.speak(msg);
 }
+  

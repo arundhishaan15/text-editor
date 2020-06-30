@@ -2,8 +2,12 @@ body {
   background-color: antiquewhite;
 }
 
+#heading {
+  color: cornflowerblue;
+}
+
 #text-output {
-  min-height: 200px;
+  min-height: 275px;
   border-radius: 3px;
   padding: 10px;
   word-wrap: break-word;
@@ -11,7 +15,7 @@ body {
 }
 
 #text-input {
-  min-height: 200px;
+  min-height: 275px;
   border-radius: 3px;
 }
 
@@ -20,6 +24,15 @@ body {
   width: 50px;
   position: relative;
   top: 10px;
+  border: none;
+}
+
+.buttonsInside {
+  border: 10px solid transparent;
+  padding: 15px;
+  padding-top: 0px;
+  border-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ8zs3ktwDCEHYKo2cfKgJovqNx32WTn-KD8Q&usqp=CAU) 30 stretch;
+  padding-bottom: 10px;
 }
 
 .editor .col {
