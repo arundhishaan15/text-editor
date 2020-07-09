@@ -1,5 +1,50 @@
-body {
-  background-color: antiquewhite;
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  height: 100vh; 
+}
+
+.left {
+  width: 20%;
+}
+
+.right {
+  width: 80%;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#text-formatting {
+  text-align: center;
+  height: 50px;
+}
+
+.icon-container {
+  padding: 10px;
+  margin-top: 30px;
+  margin-left: 40px;
+  width: fit-content;
+  height: fit-content;
+}
+
+.icon-bar {
+  border: 2px solid saddlebrown;
+  width: 220px;
+  margin-bottom: 25px;
+  padding: 20px;
+  border-radius: 30px;
+}
+
+.icon-bar-buttons {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .autocomplete {
@@ -35,10 +80,6 @@ body {
   color: #ffffff;
 }
 
-#heading {
-  color: cornflowerblue;
-}
-
 #text-output {
   min-height: 275px;
   border-radius: 3px;
@@ -55,23 +96,17 @@ body {
 #ColorPickerName {
   height: 40px;
   width: 50px;
-  position: relative;
-  top: 10px;
-  border: none;
+  margin-right: 10px;
+  border: transparent;
 }
 
-/* .buttonsInside {
-  border: 10px solid transparent;
-  padding: 15px;
-  padding-top: 0px;
-  border-image: url(images/images.png) 30 stretch;
-  padding-bottom: 10px;
-} */
+.color-input {
+  display: flex;
+  align-items: center;
+}
 
-.buttonsInside {
-  background-color: cadetblue;
-  border-radius: 10px;
-  padding-bottom: 10px;
+.speak-button {
+  margin-top: 25px;
 }
 
 .editor .col {

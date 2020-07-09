@@ -4,7 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
@@ -13,54 +13,88 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1"> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://kit.fontawesome.com/c939d0e917.js" crossorigin="anonymous"></script>
-    <title>Text Editor</title>
     <link href="style.css" rel="stylesheet" type="text/css">
+    <script src="https://kit.fontawesome.com/c939d0e917.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
     <script src="fonts.js"></script>
+    <title>Text Editor</title>
   </head>
-  <body class="text-center container">
-    <main>
-      <div id=fontlink></div>
-      <h1 id="heading" class="banner p-3">TextEditor</h1>
-      <div class="row">
-        <div class="col buttonsInside">
-          <!-- <button id="colorChanger" class="btn btn-light" onclick="changeColor()">Change Colour</button> -->
-          <button id="small" type="button"  onclick="fontSize(this,'small')" class="size btn btn-light">S</button>
-          <button id="medium" type="button"  onclick="fontSize(this,'medium')" class="size btn btn-light">M</button>
-          <button id="large" type="button"  onclick="fontSize(this,'large')" class="size btn btn-light">L</button>
-          <button id="bold" type="button"  onclick="makeBold(this)" class="btn btn-light bold">Bold</button>
-          <button id="italic" type="button"  onclick="makeItalic(this)" class="btn btn-light italic">Italic</button>
-          <button id="underline" type="button"  onclick="makeUnderline(this)" class="btn btn-light underline">Underline</button>
-          <button id="left-align" type="button" onclick="alignText(this, 'left')" class="align btn btn-light"><i class="fas fa-align-left"></i></button>
-          <button id="center-align" type="button" onclick="alignText(this, 'center')" class="align btn btn-light"><i class="fas fa-align-center"></i></button>
-          <button id="right-align" type="button" onclick="alignText(this, 'right')" class="align btn btn-light"><i class="fas fa-align-right"></i></button>
-          <!-- <button id="speechToText" class="btn btn-light" onclick="speechToText()">Speech To Text</button> -->
-          <input name="ColorPickerId" oninput="changeColor()" type="color" id="ColorPickerName" />
-          <button class="btn btn-light" onclick="textToSpeech()">Text To Speech</button>
+  <body>
+    <div class="row">
+      <div class="column left" style="background-color:tomato;">
+        <h4 id="text-formatting" class="banner p-3">Format Your Text</h4>
+        <hr>
+
+        <div class="icon-container">
+
           <div class="autocomplete" style="width:300px;">
             <input id="myInput" type="text" name="myFont" placeholder="Font">
             <button id="font" type="button"  onclick="fontChange()" class="btn btn-light">Font</button>
-          </div>  
+          </div>
           <script>
             autocomplete(document.getElementById("myInput"), fonts);
           </script>
-        </div>
+
+          <h5 id="format-description">Size</h5>
+          
+          <div class="icon-bar">
+            <div class="icon-bar-buttons">
+              <button id="small" type="button"  onclick="fontSize(this,'small')" class="size btn btn-light"><strong>S</strong></button>
+              <button id="medium" type="button"  onclick="fontSize(this,'medium')" class="size btn btn-light"><strong>R</strong></button>
+              <button id="large" type="button"  onclick="fontSize(this,'large')" class="size btn btn-light"><strong>L</strong></button> 
+            </div>
+          </div>
+
+          <h5 id="format-description">Format</h5>
+  
+          <div class="icon-bar">
+            <div class="icon-bar-buttons">
+              <button id="bold" type="button"  onclick="makeBold(this)" class="btn btn-light bold"><i class="fas fa-bold"></i></button>
+              <button id="italic" type="button"  onclick="makeItalic(this)" class="btn btn-light italic"><i class="fas fa-italic"></i></button>
+              <button id="underline" type="button"  onclick="makeUnderline(this)" class="btn btn-light underline"><i class="fas fa-underline"></i></button> 
+            </div>
+          </div>
+  
+          <h5 id="format-description">Align</h5>
+
+          <div class="icon-bar">
+            <div class="icon-bar-buttons">
+              <button id="left-align" type="button" onclick="alignText(this, 'left')" class="align btn btn-light"><i class="fas fa-align-left"></i></button>
+              <button id="center-align" type="button" onclick="alignText(this, 'center')" class="align btn btn-light"><i class="fas fa-align-center"></i></button>
+              <button id="right-align" type="button" onclick="alignText(this, 'right')" class="align btn btn-light"><i class="fas fa-align-right"></i></button>
+            </div>
+          </div>
+
+          <div class="color-input">
+            <input name="ColorPickerId" oninput="changeColor()" type="color" id="ColorPickerName" />
+            <h5>Change color</h5>
+          </div>
+
+          <div class="speak-button">
+            <button id="text-to-speech" class="btn btn-light" onclick="textToSpeech()">Speak!</button>
+          </div>
+          
+        </div> 
+
       </div>
-      <hr>
-      <div class="row editor">
-        <div class="col">
-          <div class="form-group">
-            <label for="text-input">Your Document Text</label>
-            <textarea class="form-control" id="text-input" oninput="updateText()" rows="5"></textarea>
+
+      <div class="column right" style="background-color:#bbb;">
+        <h1 id="heading" class="banner p-3">TextEditor</h1>
+        <div class="row editor">
+          <div class="col">
+            <div class="form-group">
+              <label for="text-input">Your Document Text</label>
+              <textarea class="form-control" id="text-input" oninput="updateText()" rows="5"></textarea>
+            </div>
+          </div>
+          <div class="col">
+            <label for="text-input">Formatted Text</label>
+            <div id="text-output" class="bg-light">
+            </div>
           </div>
         </div>
-        <div class="col">
-          <label for="text-input">Formatted Text</label>
-          <div id="text-output" class="bg-light">
-          </div>
-        </div>
+        
       </div>
-    </main>
+    </div>      
   </body>
 </html>
