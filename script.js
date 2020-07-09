@@ -5,6 +5,48 @@
  * TODO: Toggle the align style for "Formatted Text" when the appropriate button is clicked
  */
 
+let API_KEY = 'AIzaSyC_hUzMYYbXfvpmLUep08CCuBNG3pywG6k';
+
+ window.onload = function () {
+  // document.addEventListener('keyup', pressEnter);
+  document.getElementById('text-input').focus();
+  document.getElementById('text-input').select();  
+  document.getElementById('myInput').addEventListener('keyup', pressEnter);
+}
+
+function pressEnter(event) {
+  if (event.keyCode === 13) {
+    fontChange();
+  }
+}
+
+ getFontData = () => {
+  const URL = "https://www.googleapis.com/webfonts/v1/webfonts";
+  const FULL_URL = `${URL}?key=${API_KEY}&sort=popularity`;
+  const fontPromise = fetch(FULL_URL);
+  return fontPromise.then((response) => {
+    return response.json();
+  });
+};
+
+function fontChange () {
+  console.log("it works")
+  const font = document.getElementById('myInput').value;
+  console.log(font);
+  getFontData ()
+    .then((res) => {
+      // console.log(res);
+      // let fonts = [];
+      // for (let i = 900; i < 992; i++) {
+      //   fonts.push(res.items[i].family);
+      // }
+      // console.log(fonts);
+  });
+  let fontlink = `<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=${font}">`;
+  document.getElementById('fontlink').innerHTML = fontlink;
+  document.getElementById('text-output').style.fontFamily = font;
+  document.getElementById('heading').style.fontFamily = font;
+}
 
 /**
  * Update the output text as a user types in the textarea
@@ -35,6 +77,7 @@ function makeBold(elem){
 function makeItalic(elem){
   elem.classList.toggle('active');
   document.getElementById('text-output').classList.toggle('italic');
+  console.log(document.getElementById('text-output').classList)
 }
 
 /**
@@ -72,12 +115,25 @@ function alignText(elem, alignType){
 }
 
 function fontSize(elem, sizeOfFont) {
-  document.getElementById('text-output').style.fontSize = sizeOfFont;
-  let buttonList = document.getElementsByClassName('size');
-  for (let i=0; i < buttonList.length; i++) {
-    buttonList[i].classList.remove('active');
-  }
+  let sizes = ['small', 'medium', 'large'];
+  let formattedText = document.getElementById('text-output');
+  if(formattedText.classList.contains(sizeOfFont)) {
+    formattedText.classList.remove(sizeOfFont);
+    elem.classList.remove('active');
+  } else {
+    // if (formattedText.classList.length == 2) {
+    //   formattedText.classList.remove(formattedText.classList[1]);
+    // }
+    for (s of sizes) {
+      formattedText.classList.remove(s);
+    }
+    formattedText.classList.add(sizeOfFont);
+    let buttonList = document.getElementsByClassName('size');
+    for (let i=0; i < buttonList.length; i++) {
+      buttonList[i].classList.remove('active');
+    }
   elem.classList.add('active');
+}
 }
 
 function changeColor() {
@@ -89,4 +145,41 @@ function textToSpeech() {
   var msg = new SpeechSynthesisUtterance(document.getElementById('text-input').value);
   window.speechSynthesis.speak(msg);
 }
+
+// function speechToText() {
+//   var SpeechRecognition = window.webkitSpeechRecognition;
+    
+//   var recognition = new SpeechRecognition();
+
+//   var Textbox = document.getElementById('text-output');
+
+//   var Content = '';
+
+//   recognition.continuous = true;
+
+//   recognition.onresult = function(event) {
+
+//     var current = event.resultIndex;
+
+//     var transcript = event.results[current][0].transcript;
   
+//       Content += transcript;
+//       Textbox.val(Content);
+    
+//   };
+
+//   recognition.onerror = function(event) {
+//     console.log("eror");
+//   }
+
+//   document.getElementById('speechToText').onclick(function(e) {
+//     if (Content.length) {
+//       Content += ' ';
+//     }
+//     recognition.start();
+//   });
+
+//   Textbox.on('input', function() {
+//     Content = $(this).val();
+//   })
+// }
