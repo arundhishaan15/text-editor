@@ -5,7 +5,7 @@
  * TODO: Toggle the align style for "Formatted Text" when the appropriate button is clicked
  */
 
-let API_KEY = 'AIzaSyC_hUzMYYbXfvpmLUep08CCuBNG3pywG6k';
+// let API_KEY = 'AIzaSyC_hUzMYYbXfvpmLUep08CCuBNG3pywG6k';
 
  window.onload = function () {
   // document.addEventListener('keyup', pressEnter);
@@ -20,28 +20,28 @@ function pressEnter(event) {
   }
 }
 
- getFontData = () => {
-  const URL = "https://www.googleapis.com/webfonts/v1/webfonts";
-  const FULL_URL = `${URL}?key=${API_KEY}&sort=popularity`;
-  const fontPromise = fetch(FULL_URL);
-  return fontPromise.then((response) => {
-    return response.json();
-  });
-};
+//  getFontData = () => {
+//   const URL = "https://www.googleapis.com/webfonts/v1/webfonts";
+//   const FULL_URL = `${URL}?key=${API_KEY}&sort=popularity`;
+//   const fontPromise = fetch(FULL_URL);
+//   return fontPromise.then((response) => {
+//     return response.json();
+//   });
+// };
 
 function fontChange () {
   console.log("it works")
   const font = document.getElementById('myInput').value;
   console.log(font);
-  getFontData ()
-    .then((res) => {
-      // console.log(res);
-      // let fonts = [];
-      // for (let i = 900; i < 992; i++) {
-      //   fonts.push(res.items[i].family);
-      // }
-      // console.log(fonts);
-  });
+  // getFontData ()
+  //   .then((res) => {
+  //     // console.log(res);
+  //     // let fonts = [];
+  //     // for (let i = 900; i < 992; i++) {
+  //     //   fonts.push(res.items[i].family);
+  //     // }
+  //     // console.log(fonts);
+  // });
   let fontlink = `<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=${font}">`;
   document.getElementById('fontlink').innerHTML = fontlink;
   document.getElementById('text-output').style.fontFamily = font;
