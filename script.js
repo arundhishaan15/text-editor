@@ -6,6 +6,11 @@
  */
 
 
+window.onload = function() {
+  document.getElementById('text-input').focus();
+  document.getElementById('text-input').select();
+
+}
 /**
  * Update the output text as a user types in the textarea
  * HINT: Use the onkeydown function inside HTML
@@ -32,11 +37,11 @@ function makeBold(elem){
 /**
  * Toggle the italic class for the output text
  */
+
 function makeItalic(elem){
   elem.classList.toggle('active');
   document.getElementById('text-output').classList.toggle('italic');
 }
-
 /**
  * Toggle the underline class for the output text
  * HINT: Toggle the .active class for the button
@@ -61,7 +66,8 @@ function makeUnderline(elem){
  * HINT: Use the style property of the element
  * HINT: Make sure to untoggle the active state for all other align buttons
  */
-function alignText(elem, alignType){
+
+function alignText(elem, alignType) {
   // CODE GOES HERE
   document.getElementById('text-output').style.textAlign = alignType;
   let buttonList = document.getElementsByClassName('align');
@@ -70,3 +76,37 @@ function alignText(elem, alignType){
   }
   elem.classList.add('active');
 }
+
+function Changefontsize(elem, size) {
+  let sizes = ['small', 'medium', 'large'];
+  let defaultfontSize = document.getElementById('text-output');
+  if(defaultfontSize.classList.contains(size)) {
+    defaultfontSize.classList.remove(size);
+    elem.classList.remove('active');
+  } else {
+    for(s of sizes) {
+      defaultfontSize.classList.remove(s);
+    }
+    defaultfontSize.classList.add(size);
+    let fontbuttonList = document.getElementsByClassName('fontsizes');
+    for(i = 0; i < fontbuttonList.length; i++) {
+      fontbuttonList[i].classList.remove('active');
+    }
+    elem.classList.add('active');
+  }
+
+}
+
+function textTospeech(){
+  var message = new SpeechSynthesisUtterance(document.getElementById('text-input').value);
+  window.speechSynthesis.speak(message);
+}
+
+function Changecolor() {
+  let color = document.getElementById('color-palette').value;
+  document.getElementById('text-output').style.color = color;
+  document.getElementById('header-title').style.color = color;
+}
+
+
+

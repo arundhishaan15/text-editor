@@ -1,13 +1,28 @@
+body{
+  background-color: pink;
+}
+* {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#color-palette {
+  position: relative;
+  top: 8px;
+  height: 35px;
+  width: 50px;
+}
+
 #text-output {
-  min-height: 200px;
+  min-height: 350px;
   border-radius: 3px;
   padding: 10px;
   word-wrap: break-word;
   text-align: left;
+   
 }
 
 #text-input {
-  min-height: 200px;
+  min-height: 350px;
   border-radius: 3px;
 }
 
@@ -28,3 +43,14 @@
   text-decoration: underline;
 }
 
+.small {
+  font-size: 13px;
+}
+
+.medium {
+  font-size: 26px;
+}
+
+.large {
+  font-size: 39px;
+}
