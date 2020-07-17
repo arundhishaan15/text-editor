@@ -1,0 +1,143 @@
+body {
+  --background-color: linear-gradient( 90deg , rgb(81, 180, 129), rgb(114, 228, 8, 0.5)); 
+  --text-color: black;
+  --button-color:  rgb(110, 105, 105);
+  --transition-delay: 0.5s;
+
+  transition: var(--transition-delay) ease-in-out;
+  background: var(--background-color);
+  color: var(--text-color);
+  /* background: linear-gradient( 90deg , rgb(81, 180, 129), rgb(114, 228, 8, 0.5));  */
+  
+}
+
+body.dark{
+  --background-color: linear-gradient(90deg, rgba(0, 0, 0, 0.856), rgb(110, 105, 105));
+  --text-color: rgba(255, 255, 255, 0.897);
+  --button-color:rgb(186, 186, 196);
+}
+
+.dark-button {
+  background-color: var(--button-color);
+  margin: 10px;
+  border: none;
+  font-weight: bold;
+  color: var(--text-color);
+ 
+}
+
+.menu-button{
+  background-color: var(--button-color);
+  border-radius: none;
+  border: none;
+  font-weight: bolder;
+}
+
+.contain {
+  display: grid;
+  grid-template-columns: 3% 98%;
+}
+
+.sidenav {
+  height: 100vh;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  transition: 0.5s;
+  background: rgb(139, 151, 141);
+  
+}
+
+/* 
+.sidenav:hover{
+  background: rgb(139, 151, 141);
+} */
+
+.sidenav .closebtn {
+  position: relative;
+  /* border: 1px solid black; */
+  left: 80%;
+  font-size: 36px;
+}
+
+.column-2 {
+  margin: 10px;
+}
+
+#text-output {
+  margin: 2%;
+  min-height: 50vh;
+  border-radius: 3px;
+  padding: 10px;
+  word-wrap: break-word;
+  text-align: left;
+}
+
+#text-input {
+  margin: 2%;
+  min-height: 50vh;
+
+}
+
+.editor .col {
+  max-width: 50%;
+  flex-basis: 50%;
+}
+
+.editor label {
+  display: flex;
+  justify-content: center;
+  
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.caps {
+  text-transform: uppercase; 
+}
+
+.small {
+  font-size: 13px;
+}
+
+.medium {
+  font-size: 26px;
+}
+
+.large {
+  font-size: 39px;
+}
+
+.button-transition {
+  margin: 2%;
+}
+
+.button-transition:hover {
+  margin: 0% 10% 0% 10%;
+  background: rgb(139, 151, 141);
+  transition: ease-in-out 300ms; 
+  cursor: pointer;
+}
+
+.size-buttons, .color-button, .align-buttons, .style-buttons, .text-to-speech, .caps-button {
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+  border: 1px solid black;
+  padding: 10%;
+}
+
+
