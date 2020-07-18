@@ -84,7 +84,7 @@ function activateCaps(elem){
 
 function openNav() {
   document.getElementById("mySidenav").style.width = "15%";
-  document.getElementById("container").style.gridTemplateColumns = "15% 75%";
+  document.getElementById("container").style.gridTemplateColumns = "15% 85%";
     
 }
 
