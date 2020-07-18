@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/c939d0e917.js" crossorigin="anonymous"></script>
+    <title>Text Editor</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <div class="contain" id="container">     
+      <button class="btn btn-light menu-button" onclick="openNav()">></button>
+      
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> 
+        <div class="buttons"> 
+
+          <div class="style-buttons">
+            <button id="bold"
+            type="button"  
+            onclick="makeBold(this)" 
+            class="style btn btn-light button-transition" 
+            style="font-weight: bold;">B</button>
+
+            <button id="italic" 
+            type="button"
+            onclick="makeItalic(this)"
+            class="style btn btn-light button-transition"
+            style="font-style: italic;">i</button>                      
+
+            <button id="underline"
+            type="button"
+            onclick="makeUnderline(this)"
+            class="style btn btn-light button-transition"
+            style="text-decoration: underline;">U</button>
+          </div>
+
+
+          <div class="align-buttons">
+            <button id="left-align" 
+            type="button" 
+            onclick="alignText(this, 'left')" 
+            class="align btn btn-light button-transition">
+            <i class="fas fa-align-left"></i></button>
+
+            <button id="center-align" 
+            type="button" 
+            onclick="alignText(this, 'center')" 
+            class="align btn btn-light button-transition">
+            <i class="fas fa-align-center"></i></button>
+
+            <button id="right-align" 
+            type="button" 
+            onclick="alignText(this, 'right')" 
+            class="align btn btn-light button-transition">
+            <i class="fas fa-align-right"></i></button>
+          </div>
+
+          <div class="size-buttons">
+            <button id="small" 
+            onclick="Changefontsize(this, 'small')" 
+            class="fontsizes btn btn-light button-transition">S</button>
+
+            <button id="medium" 
+            onclick="Changefontsize(this, 'medium')" 
+            class="fontsizes btn btn-light button-transition">M</button>
+
+            <button id="large" 
+            onclick="Changefontsize(this, 'large')" 
+            class="fontsizes btn btn-light button-transition">L</button>
+          </div>
+              
+          <div class="text-to-speech">
+            <button class="btn btn-light button-transition" onclick="textTospeech()">Text to Speech</button>
+          </div>
+          <div class="color-button">
+            <input class="button-transition" type="color" oninput="Changecolor()" id="color-palette" placeholder="Color">
+          </div>
+          <div class="caps-button">
+            <button id="caps" type="button" onclick="activateCaps(this)" class="btn btn-light button-transition">CAPS</button>
+          </div>
+    </div>
+  </div>
+  
+  <div class="column-2">
+    <h1 class="banner p-3 title">TextEditor</h1> 
+    <button class="btn btn-light dark-button" id="dark-theme">Dark theme</button>
+    
+    <div class="row editor">
+      <div class="col">
+        <div class="form-group">
+          <label for="text-input" style="font-weight: bold;">Your Document Text</label>
+          <textarea class="form-control" id="text-input" oninput="updateText()" rows="3"></textarea>
+      </div>
+      </div>
+      <div class="col">
+        <label for="text-input" style="font-weight: bold;">Formatted Text</label>
+        <div id="text-output" class="bg-light">
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  </div>
+    
+              
+  </body>
+</html>
